@@ -4,7 +4,7 @@ library(MASS)
 library(glasso)
 library(PearsonDS)
 
-source('Multi-MRF.r')
+source('Multi-MRF.R')
 
 # Trait data (n=100, nCpG=10)
 # Long format
@@ -36,7 +36,7 @@ wt<-dbeta(MAF,1,25)
 GT <- apply(geno, 2, rep, each=10)
 COV <- apply(cov, 2, rep, each=10)
 
-# Assuming methylation traits follow a beta distribution and the correlation structure is distance-based (other correlation such as exchangeable can be applied)
+# Assuming methylation traits follow a beta distribution and the correlation structure is distance-based (exchangeable correlation can also be applied)
 obj.dist.b0<-null.Multi.MRF(Y=trait$y0, distance=distance,X=COV,correlation='distance-based', out_type='beta');
 obj.dist.b1<-null.Multi.MRF(Y=trait$y1, distance=distance,X=COV,correlation='distance-based', out_type='beta');
 obj.dist.b2<-null.Multi.MRF(Y=trait$y2, distance=distance,X=COV,correlation='distance-based', out_type='beta');
@@ -45,7 +45,7 @@ p.dgrf.dist.b0 <-Multi.MRF(Z=GT, obj.dist.b0, weights=(wt^2))$pvalue
 p.dgrf.dist.b1 <-Multi.MRF(Z=GT, obj.dist.b1, weights=(wt^2))$pvalue
 p.dgrf.dist.b2 <-Multi.MRF(Z=GT, obj.dist.b2, weights=(wt^2))$pvalue
 
-# Assuming methylation trait follows a normal distribution after logit transformation and the correlation is distance-based
+# Assuming methylation trait follows a normal distribution after logit transformation and the correlation is distance-based (exchangeable correlation can also be applied)
 y.l0<-log(trait$y0/(1-trait$y0))
 y.l1<-log(trait$y1/(1-trait$y1))
 y.l2<-log(trait$y2/(1-trait$y2))
