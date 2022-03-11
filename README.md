@@ -14,7 +14,11 @@ Sample data availability
 - [Methylation traits](./Example/Data/Traits.txt)
 - [Distance info for each CpG site](./Example/Data/Distance.txt)
 - [Genotypes](./Example/Data/Genotypes.txt)
+- [Information for genotypes](./Example/Data/info.info)
 - [Covariates](./Example/Data/Covariates.txt)
 
 Sample code availability
 - [Example](./Example/Example.R)
+
+Simulation code availability
+- [Example](./Example/Simulation code.R)
