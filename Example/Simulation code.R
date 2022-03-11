@@ -100,7 +100,7 @@ if (causal_structure == "half shared"){
 # y.l0: y0 in logit transform
 # y1: in association with 10% causal mQTLs in one direction
 # y.l1: y1 in logit transform
-# y2: in association with 10% causal mQTLs in two directions
+# y2: in association with 10% causal mQTLs in bi-direction
 # y.l2: y2 in logit transform
 y0 <- as.data.frame(matrix(rep(0,each=10*size),byrow=T,ncol=1));colnames(y0) <- "Y";
 y1 <- y0;y2 <- y0;y.l0 <- y0; y.l1 <- y0; y.l2 <- y0;
@@ -122,7 +122,8 @@ for (j in 1:10){
   eta0 <- eta0*(2.19-2)/(max0-min0)+(-2*min0+2.19*max0)/(min0-max0)
   eta0[eta0 > 2.19] <- 2.19
   
-  # eta = beta1*x1+beta2*x2+...+betak*xk, make min = -2.19, max = c, c to control power
+  # eta1 for one direction
+  # eta1 = beta1*x1+beta2*x2+...+betak*xk, make min = -2.19, max = c, c to control power
   c <- 1.5
   eta1<-rowSums(GT_n*matrix(effect1,nrow=nrow(GT_n),ncol=ncol(GT_n),byrow=T))+error[,j]
   min1 <- min(eta1)
@@ -130,6 +131,8 @@ for (j in 1:10){
   eta1 <- eta1*(2.19+c)/(max1-min1)+(c*min1+2.19*max1)/(min1-max1)
   eta1[eta1 > 2.19] <- 2.19
   
+  # eta2 for bi-direction
+  # eta2 = beta1*x1+beta2*x2+...+betak*xk, make min = -2.19, max = d, d to control power
   d <- 2.5
   eta2<-rowSums(GT_n*matrix(effect2,nrow=nrow(GT_n),ncol=ncol(GT_n),byrow=T))+error[,j]
   min2 <- min(eta2)
