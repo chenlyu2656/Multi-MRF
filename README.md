@@ -18,7 +18,7 @@ Sample data availability
 - [Covariates](./Example/Data/Covariates.txt)
 
 Sample code availability
-- [Example](./Example/Example.R)
+- [Sample code](./Example/Example.R)
 
 Simulation code availability
-- [Example](./Example/Simulation.R)
+- [Simulation code](./Example/Simulation.R)
