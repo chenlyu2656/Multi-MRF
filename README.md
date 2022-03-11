@@ -21,4 +21,4 @@ Sample code availability
 - [Example](./Example/Example.R)
 
 Simulation code availability
-- [Example](./Example/Simulation code.R)
+- [Example](./Example/Simulation.R)
