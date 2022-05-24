@@ -23,4 +23,4 @@ Sample code availability
 Simulation code availability
 - [Simulation code](./Example/Simulation.R)
 
-Detailed user's guide is [available](Multi-MRF/Multi-MRF User's Guide.pdf)
+Detailed user's guide is [available](./'Multi-MRF User's Guide.pdf')
